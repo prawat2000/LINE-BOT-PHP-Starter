@@ -26,10 +26,30 @@ if (!is_null($events['events'])) {
 			if($rtext[0]=='สวัสดี'){
 			   $text = "สวัสดี ".$event['content']['from'];	
 			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
-			   $text = "MW Unit ".$rtext[1]." = 298 MW";	
-			}else{
+			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-10%2008:00:00&endtime=2016-10-10%2008:00:00&mmunit=".$rtext[1]."&point=d10&_unit=2";
+			   $ch1 = curl_init();
+                           curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+                           curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                           curl_setopt($ch1, CURLOPT_URL, $url);
+                           $result1 = curl_exec($ch1);
+                           curl_close($ch1);
+            
+                           $obj = json_decode($result1, true);
+                           if(isset($obj['d10'])){
+                              $text = $obj['d10'];
+                           }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
+                              $text = 'ไม่พบข้อมูล';
+                           }
+                        }else{
 			   $text = "นี่คือคำตอบจาก Pw.bot";
 			}
+			
+	
+			
+			
+			
+			
+			
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
