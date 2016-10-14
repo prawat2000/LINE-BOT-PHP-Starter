@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
 			$rtext = explode(" ",$event['message']['text']);
 			//$text = "ประวัติสุดหล่อ จริง ๆ";
 			// Get replyToken
-			$replyToken = $event['replyToken'];
+			$replyToken = $event['userID'];
 			if($rtext[0]=='สวัสดี'){
 			   $text = "สวัสดี ".$replyToken;	
 			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
