@@ -38,8 +38,8 @@ if (!is_null($events['events'])) {
                            if(isset($obj['d10'])){
                               $text = $obj['d10'];
                            }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
-                              //$text = 'ไม่พบข้อมูล';
-				$text=$url;   
+                              $text = 'ไม่พบข้อมูล';
+				//$text=$url;   
                            }
                         }else{
 			   $text = "นี่คือคำตอบจาก Pw.bot";
