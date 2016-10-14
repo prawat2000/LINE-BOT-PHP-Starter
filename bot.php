@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			if($text=='สวัสดี'){
-			   $send_text = "สวัสดี ".$event['message']['text'];	
+			   $text = "สวัสดี ".$event['message']['text'];	
 			}	
 			// Build message to reply back
 			$messages = [
