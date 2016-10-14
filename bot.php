@@ -9,23 +9,27 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
-		
+		/*
 		  $sticker = [
 		  	'type' => 'sticker',
 			'packageID' => '1',
 			'stickerID' => '1'  
 		  ];	
-		
+		*/
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text'];
+			$rtext = explode(" ",$event['message']['text']);
 			//$text = "ประวัติสุดหล่อ จริง ๆ";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			if($text=='สวัสดี'){
-			   $text = "สวัสดี ".$event['message']['text'];	
-			}	
+			if($rtext[0]=='สวัสดี'){
+			   $text = "สวัสดี ".$replyToken;	
+			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
+			   $text = "MW Unit ".$rtext[1]." = 298 MW";	
+			}else{
+			   $text = "นี่คือคำตอบจาก Pw.bot";
+			}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -36,8 +40,8 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
+				'messages' => [$messages],
 				
-				'sticker' => [$sticker],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
