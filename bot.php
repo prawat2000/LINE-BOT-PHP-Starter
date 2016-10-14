@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			if($rtext[0]=='สวัสดี'){
-			   $text = "สวัสดี ".$event['source']['userID'];	
+			   $text = "สวัสดี ".$event['userID'];	
 			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
 			   $text = "MW Unit ".$rtext[1]." = 298 MW";	
 			}else{
