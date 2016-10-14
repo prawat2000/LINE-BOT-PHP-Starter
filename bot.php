@@ -9,7 +9,7 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
-		if($event['type'] == 'sticker' && $event['sticker']['type'] == 'sticker'){
+		if($event['type'] == 'sticker'){
 		  $sticker = [
 		  	'type' => 'sticker',
 			'packageID' => '1',
