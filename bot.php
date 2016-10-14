@@ -9,14 +9,23 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
+		if($event['type'] == 'sticker' && $event['sticker']['type'] == 'sticker'){
+		  $sticker = [
+		  	'type' => 'sticker',
+			'packageID' => '1',
+			'stickerID' => '1'  
+		  ];	
+		}
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			//$text = $event['message']['text'];
-			$text = "ประวัติสุดหล่อ จริง ๆ";
+			$text = $event['message']['text'];
+			//$text = "ประวัติสุดหล่อ จริง ๆ";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			if($text=='สวัสดี'){
+			   $send_text = "สวัสดี ".$event['message']['text'];	
+			}	
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -28,6 +37,7 @@ if (!is_null($events['events'])) {
 			$data = [
 				'replyToken' => $replyToken,
 				'messages' => [$messages],
+				'sticker' => [$sticker],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
