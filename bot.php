@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
                            $obj = json_decode($result1, true);
 				
                            if(isset($obj[0]['d40'])){
-                              $text = $obj[0]['d40'];
+                              $text = "กำลังผลิตของ UNIT ".$stext[1]." ขณะนี้คือ ".$obj[0]['d40']." MW";
                            }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
                               $text = 'ไม่พบข้อมูล';
 				//$text=$url;   
