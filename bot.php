@@ -35,16 +35,16 @@ if (!is_null($events['events'])) {
                            curl_close($ch1);
             
                            $obj = json_decode($result1, true);
-			/*	
-                           if(isset($obj['d10'])){
-                              $text = $obj['d10'];
+				
+                           if(isset($obj[0]['d40'])){
+                              $text = $obj[0]['d40'];
                            }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
                               $text = 'ไม่พบข้อมูล';
 				//$text=$url;   
                            }
-			   */
+			   
 			   //$text = $url;
-			   $text = $obj[0]['d40'];	
+			   //$text = $obj[0]['d40'];	
 			   
                         }else{
 			   $text = "นี่คือคำตอบจาก Pw.bot";
