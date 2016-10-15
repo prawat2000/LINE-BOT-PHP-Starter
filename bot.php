@@ -44,7 +44,7 @@ if (!is_null($events['events'])) {
                            }
 			   */
 			   //$text = $url;
-			   $text = $obj[0].['d40'];	
+			   $text = $obj['d40'];	
 			   
                         }else{
 			   $text = "นี่คือคำตอบจาก Pw.bot";
