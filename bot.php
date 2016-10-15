@@ -43,7 +43,7 @@ if (!is_null($events['events'])) {
 				//$text=$url;   
                            }
 			   */
-			   $text = $obj['d10'];	
+			   $text = $url;	
 			   
                         }else{
 			   $text = "นี่คือคำตอบจาก Pw.bot";
