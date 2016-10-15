@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 			   //date_default_timezone_set("Asia/Bangkok");
 			   //$t =time()-300;
 			   //$dt = date("Y-m-d h:i:00",$t);
-			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-14%2012:00:00&endtime=2016-10-14%2012:00:00&mmunit=11&point=d40&_unit=2";
+			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-14%2012:00:00&endtime=2016-10-14%2012:00:00&mmunit=".trim($rtext[1])."&point=d40&_unit=2";
 			   $ch1 = curl_init();
                            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
                            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
