@@ -26,7 +26,10 @@ if (!is_null($events['events'])) {
 			if($rtext[0]=='สวัสดี'){
 			   $text = "สวัสดี ".$event['content']['from'];	
 			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
-			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-10%2008:00:00&endtime=2016-10-10%2008:00:00&mmunit=".$rtext[1]."&point=d40&_unit=2";
+			   date_default_timezone_set("Asia/Bangkok");
+			   $t =time()-120;
+			   $dte = date("Y-m-d h:i:00",$t);	
+			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=".$dte."&endtime=".$dte."&mmunit=".$rtext[1]."&point=d40&_unit=2";
 			   $ch1 = curl_init();
                            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
                            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
@@ -37,7 +40,7 @@ if (!is_null($events['events'])) {
                            $obj = json_decode($result1, true);
 				
                            if(isset($obj[0]['d40'])){
-                              $text = "กำลังผลิตของ UNIT ".$stext[1]." ขณะนี้คือ ".$obj[0]['d40']." MW";
+                              $text = "กำลังผลิตของ UNIT ".$rtext[1]." ขณะนี้คือ ".$obj[0]['d40']." MW";
                            }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
                               $text = 'ไม่พบข้อมูล';
 				//$text=$url;   
