@@ -26,7 +26,7 @@ if (!is_null($events['events'])) {
 			if($rtext[0]=='สวัสดี'){
 			   $text = "สวัสดี ".$event['content']['from'];	
 			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
-			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-10%2008:00:00&endtime=2016-10-10%2008:00:00&mmunit=".$rtext[1]."&point=d10&_unit=2";
+			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-10%2008:00:00&endtime=2016-10-10%2008:00:00&mmunit=".$rtext[1]."&point=d40&_unit=2";
 			   $ch1 = curl_init();
                            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
                            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
@@ -43,7 +43,8 @@ if (!is_null($events['events'])) {
 				//$text=$url;   
                            }
 			   */
-			   $text = $url;	
+			   //$text = $url;
+			   $text = $obj[0].['d40'];	
 			   
                         }else{
 			   $text = "นี่คือคำตอบจาก Pw.bot";
