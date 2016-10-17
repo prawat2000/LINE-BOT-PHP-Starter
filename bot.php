@@ -50,7 +50,7 @@ if (!is_null($events['events'])) {
 			   //$text = $obj[0]['d40'];	
 			   
                         }else{
-			   $text = "นี่คือคำตอบจาก Pw.bot";
+			   $text = "นี่คือคำตอบจาก Pw.bot".$dt;
 			}
 			
 	
