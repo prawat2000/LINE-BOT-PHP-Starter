@@ -26,9 +26,9 @@ if (!is_null($events['events'])) {
 			if($rtext[0]=='สวัสดี'){
 			   $text = "สวัสดี ".$event['content']['from'];	
 			}else if(($rtext[0]=="mw") && ($rtext[1]!="")){
-			   //date_default_timezone_set("Asia/Bangkok");
-			   //$t =time()-300;
-			   //$dt = date("Y-m-d h:i:00",$t);
+			   date_default_timezone_set("Asia/Bangkok");
+			   $t =time()-300;
+			   $dt = date("Y-m-d h:i:00",$t);
 			   $url="http://maemoh.egat.com/ais/webservice/PlotGraph.php?starttime=2016-10-14%2012:00:00&endtime=2016-10-14%2012:00:00&mmunit=".trim($rtext[1])."&point=d484&_unit=2";
 			   $ch1 = curl_init();
                            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
